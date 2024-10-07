@@ -1,6 +1,6 @@
 interface DepartmentBase {
     name: string,
-    status: boolean,
+    status: boolean | string,
 }
 
 export interface DepartmentCreate extends DepartmentBase {}   

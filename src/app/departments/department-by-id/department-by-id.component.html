@@ -10,6 +10,35 @@
         box-sizing: inherit;
         position: relative;
     } 
+
+    .modal {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 2rem;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 1000;
+    }
+
+  .modal-buttons {
+    display: flex;
+    gap: 10px;
+  }
+
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 500;
+  }
 </style>
 
 <section class="main">
@@ -26,10 +55,22 @@
                 edit
             </a> 
         </button>
+
+        <button (click)="openDeleteModal(department)">delete</button>
     </div>
 
     <div *ngIf="!department">
         <p>No departments available.</p>
+    </div>
+
+    <!-- Modal de confirmación de eliminación -->
+    <div *ngIf="departmentToDelete" class="modal-overlay"></div>
+    <div *ngIf="departmentToDelete" class="modal">
+        <h3>Are you sure you want to delete {{ departmentToDelete!.name }}?</h3>
+        <div class="modal-buttons">
+        <button (click)="confirmDelete()">Yes</button>
+        <button (click)="cancelDelete()">No</button>
+        </div>
     </div>
   
 </section>
