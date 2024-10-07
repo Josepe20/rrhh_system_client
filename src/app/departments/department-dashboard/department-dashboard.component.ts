@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { DepartmentService } from '../../services/departments/department.service';
 import { CommonModule } from '@angular/common';
 import { Department } from '../department.interfaces';
@@ -7,7 +8,7 @@ import { Department } from '../department.interfaces';
 @Component({
   selector: 'app-department-dashboard',
   standalone: true,
-  imports: [CommonModule],  // Import CommonModule to use *ngIf and *ngFor
+  imports: [CommonModule, RouterModule], 
   templateUrl: './department-dashboard.component.html',
   styleUrls: ['./department-dashboard.component.scss']
 })
