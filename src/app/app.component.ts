@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { DepartmentService } from './services/departments/department.service';
+import { EmployeeService } from './services/employees/employee.service';
+import { JobPositionService } from './services/jobPositions/job-position.service';
 
 @Component({
   selector: 'app-root',
@@ -11,3 +14,4 @@ import { RouterOutlet } from '@angular/router';
 export class AppComponent {
   title = 'rrhh_system_client';
 }
+
