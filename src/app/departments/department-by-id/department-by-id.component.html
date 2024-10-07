@@ -13,17 +13,22 @@
 </style>
 
 <section class="main">
-    <p>department-by-id works!</p>
 
     <div *ngIf="department">
         <ul>
             <li>    
-                {{ department?.name }} / {{ department?.status ? 'Active' : 'Inactive' }}
+                name: {{ department.name }} || status: {{ department.status ? 'Active' : 'Inactive' }}
             </li>
         </ul>
+
+        <button>
+            <a [routerLink]="['/departments', department.id, 'update']">
+                edit
+            </a> 
+        </button>
     </div>
 
-    <div *ngIf="!departments">
+    <div *ngIf="!department">
         <p>No departments available.</p>
     </div>
   

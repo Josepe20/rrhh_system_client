@@ -4,6 +4,7 @@ import { Routes } from '@angular/router';
 import { DepartmentDashboardComponent } from './departments/department-dashboard/department-dashboard.component';
 import { DepartmentCreateComponent } from './departments/department-create/department-create.component';
 import { DepartmentByIdComponent } from './departments/department-by-id/department-by-id.component';
+import { DepartmentUpdateComponent } from './departments/department-update/department-update.component';
 
 //Employee
 import { EmployeeDashboardComponent } from './employees/employee-dashboard/employee-dashboard.component';
@@ -18,6 +19,7 @@ export const routes: Routes = [
             { path: '', component: DepartmentDashboardComponent }, // Vista principal del dashboard
             { path: 'create', component: DepartmentCreateComponent }, // Crear nuevo departamento
             { path: ':id', component: DepartmentByIdComponent }, // Ruta dinámica para buscar por ID
+            { path: ':id/update', component: DepartmentUpdateComponent }, // Ruta dinámica para buscar por ID
         ]
     },
     {
