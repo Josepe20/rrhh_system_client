@@ -1,1 +1,43 @@
-<p>department-dashboard works!</p>
+<style>
+    .main {
+        width: 100%;
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        box-sizing: inherit;
+        position: relative;
+    } 
+</style>
+
+<section class="main">
+    <p>department-dashboard works!</p>
+
+    <!-- [routerLink]="['/departments/create']" -->
+    <button>
+        Create New Department
+    </button>
+
+    <div *ngIf="departments.length > 0">
+        <ul>
+        <li *ngFor="let department of departments">
+            <span>
+                {{ department.name }}
+            </span> / 
+            <button>
+                edit
+            </button> / 
+            <button>
+                delete
+            </button>
+        </li>
+        </ul>
+    </div>
+
+    <div *ngIf="departments.length === 0">
+        <p>No departments available.</p>
+    </div>
+  
+</section>
