@@ -15,17 +15,22 @@
 <section class="main">
     <p>department-dashboard works!</p>
 
-    <!-- [routerLink]="['/departments/create']" -->
+    <!--  -->
     <button>
-        Create New Department
+        <!-- <a href="departments/create"> -->
+        <a [routerLink]="['/departments/create']">
+            Create New Department
+        </a>     
     </button>
 
     <div *ngIf="departments.length > 0">
         <ul>
         <li *ngFor="let department of departments">
-            <span>
-                {{ department.name }}
-            </span> / 
+            <a [routerLink]="['/departments', department.id]">
+                <span>
+                    {{ department.name }}
+                </span>
+            </a> / 
             <button>
                 edit
             </button> / 

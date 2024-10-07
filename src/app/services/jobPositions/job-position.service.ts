@@ -14,7 +14,20 @@ export class JobPositionService {
     return this.http.get(`${this.apiUrl}/all`);
   }
 
+  getJobPositionById(id: Number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/${id}`);
+  }
+
   createJobPosition(jobPositionData: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/create`, jobPositionData);
   }
+
+  updateJobPosition(id: Number, updateDepartment: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/update/${id}`, updateDepartment);
+  }
+
+  deleteJobPosition(id: Number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/delete/${id}`);
+  }
 }
+

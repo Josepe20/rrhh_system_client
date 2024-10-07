@@ -1,0 +1,30 @@
+<style>
+    .main {
+        width: 100%;
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        box-sizing: inherit;
+        position: relative;
+    } 
+</style>
+
+<section class="main">
+    <p>department-by-id works!</p>
+
+    <div *ngIf="department">
+        <ul>
+            <li>    
+                {{ department?.name }} / {{ department?.status ? 'Active' : 'Inactive' }}
+            </li>
+        </ul>
+    </div>
+
+    <div *ngIf="!departments">
+        <p>No departments available.</p>
+    </div>
+  
+</section>
