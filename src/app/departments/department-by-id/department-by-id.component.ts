@@ -46,7 +46,6 @@ export class DepartmentByIdComponent implements OnInit {
     if (this.departmentToDelete) {
       this.departmentService.deleteDepartment(this.departmentToDelete.id).subscribe({
         next: () => {
-          alert(`Department '${this.departmentToDelete?.name}' deleted successfully`);
           // Redirigir al dashboard de departamentos después de la eliminación
           this.router.navigate(['/departments']);
         },

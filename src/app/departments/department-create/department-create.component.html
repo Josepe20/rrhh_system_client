@@ -1,42 +1,22 @@
-<style>
-    .main {
-        width: 100%;
-        min-height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 1rem;
-        box-sizing: inherit;
-        position: relative;
-    } 
-
-    .form {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 8px;
-    }
-</style>
-
 <section class="main">
+  <div class="create-department">
+      <h2>Create a New Department</h2>
 
-    <div class="create-department">
-        <h2>Create a New Department</h2>
-        
-        <form (ngSubmit)="createDepartment()" class="form">
-          <label for="departmentName">Department Name:</label>
-          <input type="text" [(ngModel)]="department.name" name="departmentName" required>
-      
-          <label for="status">Status:</label>
-          <select [(ngModel)]="department.status" name="status">
-            <option [value]="true">Active</option>
-            <option [value]="false">Inactive</option>
-          </select>
-      
-          <button type="submit">Create Department</button>
-        </form>
-      </div>
-             
+      <form (ngSubmit)="createDepartment()" class="form">
+          <div class="form-group">
+              <label for="departmentName">Department Name:</label>
+              <input type="text" [(ngModel)]="department.name" name="departmentName" required>
+          </div>
+
+          <div class="form-group">
+              <label for="status">Status:</label>
+              <select [(ngModel)]="department.status" name="status">
+                  <option [value]="true">Active</option>
+                  <option [value]="false">Inactive</option>
+              </select>
+          </div>
+
+          <button type="submit" class="create-btn">Create Department</button>
+      </form>
+  </div>
 </section>

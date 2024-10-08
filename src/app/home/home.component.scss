@@ -1,0 +1,40 @@
+.section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    min-height: 75vh; /* Ensure it takes the full viewport height */
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    color: #4267B2; /* Facebook Blue */
+    text-align: center; /* Center the title */
+    margin-bottom: 1rem; /* Add some spacing */
+  }
+  
+  p {
+    color: #333;
+    font-size: 1.2rem;
+    text-align: center; /* Center the description text */
+    margin-bottom: 2rem;
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column; /* Stack the items vertically */
+    align-items: center; /* Center align the content */
+    max-width: 1200px;
+    width: 100%;
+  }
+  
+  .left-side {
+    flex: 1;
+    text-align: center; /* Center align text and image */
+  }
+  
+  img {
+    max-width: 250px; /* Set a max-width for the image */
+    height: auto; /* Maintain aspect ratio */
+    margin-top: 1rem; /* Add some space between the text and image */
+  }

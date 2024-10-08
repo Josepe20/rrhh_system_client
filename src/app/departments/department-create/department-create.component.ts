@@ -29,7 +29,6 @@ export class DepartmentCreateComponent {
 
     this.departmentService.createDepartment(this.department).subscribe({
       next: (response) => {
-        alert('Department created successfully');
         this.resetForm(); // Limpiar el formulario después de la creación
         // Redirigir al dashboard de departamentos después de la eliminación
         this.router.navigate(['/departments']);

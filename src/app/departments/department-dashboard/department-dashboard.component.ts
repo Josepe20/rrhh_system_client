@@ -40,7 +40,6 @@ export class DepartmentDashboardComponent implements OnInit {
     if (this.departmentToDelete) {
       this.departmentService.deleteDepartment(this.departmentToDelete.id).subscribe({
         next: () => {
-          alert(`Department '${this.departmentToDelete?.name}' deleted successfully`);
           this.loadDepartments(); // Recargar la lista de departamentos después de la eliminación
           this.departmentToDelete = null; // Limpiar la selección
         },

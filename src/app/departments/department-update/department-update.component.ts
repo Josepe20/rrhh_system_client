@@ -48,7 +48,6 @@ export class DepartmentUpdateComponent implements OnInit {
     this.departmentService.updateDepartment(departmentId, this.department).subscribe({
       next: (response) => {
         console.log(response)
-        alert('Department updated successfully');
         this.resetForm(); // Limpiar el formulario después de la creación
         // Redirigir al dashboard de departamentos después de la eliminación
         this.router.navigate(['/departments', departmentId]);

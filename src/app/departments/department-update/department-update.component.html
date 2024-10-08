@@ -1,25 +1,3 @@
-<style>
-    .main {
-        width: 100%;
-        min-height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 1rem;
-        box-sizing: inherit;
-        position: relative;
-    } 
-
-    .form {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 8px;
-    }
-</style>
-
 <section class="main">
 
     <div *ngIf="department">
@@ -27,22 +5,27 @@
             <h2>Update Department</h2>
             
             <form (ngSubmit)="updateDepartment()" class="form">
-              <label for="departmentName">Department Name:</label>
-              <input type="text" [(ngModel)]="department.name" name="departmentName" required>
+              <div class="form-group">
+                  <label for="departmentName">Department Name:</label>
+                  <input type="text" [(ngModel)]="department.name" name="departmentName" required>
+              </div>
           
-              <label for="status">Status:</label>
-              <select [(ngModel)]="department.status" name="status">
-                <option [value]="true">Active</option>
-                <option [value]="false">Inactive</option>
-              </select>
+              <div class="form-group">
+                  <label for="status">Status:</label>
+                  <select [(ngModel)]="department.status" name="status">
+                    <option [value]="true">Active</option>
+                    <option [value]="false">Inactive</option>
+                  </select>
+              </div>
           
-              <button type="submit">Update Department</button>
+              <button type="submit" class="create-btn">Update Department</button>
             </form>
         </div>
     </div>
-
 
     <div *ngIf="!department">
         <p>loading...</p>
     </div>
 </section>
+
+

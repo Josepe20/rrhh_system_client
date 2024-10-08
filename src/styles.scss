@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --main-blue: #4267B2; // Facebook Blue
+    --white: #FFFFFF;
+    --gray: #f0f0f0;
+  }
+  
+  body {
+    background-color: var(--white);
+    color: var(--main-blue);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  

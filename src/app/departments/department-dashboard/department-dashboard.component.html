@@ -1,84 +1,48 @@
-<style>
-    .main {
-        width: 100%;
-        min-height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 1rem;
-        box-sizing: inherit;
-        position: relative;
-    } 
-
-    .modal {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: white;
-        padding: 2rem;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        z-index: 1000;
-    }
-
-  .modal-buttons {
-    display: flex;
-    gap: 10px;
-  }
-
-  .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 500;
-  }
-</style>
-
 <section class="main">
-
-    <button>
-        <a [routerLink]="['/departments/create']">
-            Create New Department
-        </a>     
+    <button class="create-btn">
+      <a [routerLink]="['/departments/create']">Create New Department</a>
     </button>
-
+  
     <div *ngIf="departments.length > 0">
-        <ul>
-        <li *ngFor="let department of departments">
-            <a [routerLink]="['/departments', department.id]">
-                <span>
-                    {{ department.name }}
-                </span>
-            </a> / 
-            <button>
-                <a [routerLink]="['/departments', department.id, 'update']">
-                    edit
-                </a>              
-            </button> / 
-            <button (click)="openDeleteModal(department)">delete</button>
-        </li>
-        </ul>
+      <table class="departments-table">
+        <thead>
+          <tr>
+            <th>Department Name</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let department of departments">
+            <td>
+              <a [routerLink]="['/departments', department.id]">{{ department.name }}</a>
+            </td>
+            <td>
+              <button class="edit-btn">
+                <a [routerLink]="['/departments', department.id, 'update']">Edit</a>
+              </button>
+            </td>
+            <td>
+              <button class="delete-btn" (click)="openDeleteModal(department)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-
+  
     <div *ngIf="departments.length === 0">
-        <p>No departments available.</p>
+      <p>No departments available.</p>
     </div>
+  
 
     <!-- Modal de confirmación de eliminación -->
     <div *ngIf="departmentToDelete" class="modal-overlay"></div>
     <div *ngIf="departmentToDelete" class="modal">
         <h3>Are you sure you want to delete {{ departmentToDelete!.name }}?</h3>
         <div class="modal-buttons">
-        <button (click)="confirmDelete()">Yes</button>
-        <button (click)="cancelDelete()">No</button>
+            <button (click)="confirmDelete()" class="confirm-delete">Yes</button>
+            <button (click)="cancelDelete()" class="cancel-delete">No</button>
         </div>
     </div>
-  
 </section>
+  

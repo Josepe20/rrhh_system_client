@@ -1,5 +1,8 @@
 import { Routes } from '@angular/router';
 
+// Home 
+import { HomeComponent } from './home/home.component';
+
 // Department
 import { DepartmentDashboardComponent } from './departments/department-dashboard/department-dashboard.component';
 import { DepartmentCreateComponent } from './departments/department-create/department-create.component';
@@ -13,6 +16,10 @@ import { EmployeeDashboardComponent } from './employees/employee-dashboard/emplo
 import { JobPositionDashboardComponent } from './jobPosition/job-position-dashboard/job-position-dashboard.component';
 
 export const routes: Routes = [
+    {
+        path: '',
+        component: HomeComponent // Render HomeComponent for root path
+    },
     {
         path: 'departments',
         children: [
@@ -33,11 +40,12 @@ export const routes: Routes = [
     {
         path: '', 
         redirectTo: '/', 
-        pathMatch: 'full'
+        pathMatch: 'full',
+
     },
     {
         path: '**', 
         redirectTo: '/', 
-        pathMatch: 'full'
+        pathMatch: 'full',
     }
 ];
