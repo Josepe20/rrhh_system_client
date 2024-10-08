@@ -1,0 +1,39 @@
+<section class="main">
+    <div *ngIf="jobPosition">
+      <div class="job-position-info">
+        <p>
+          <strong>Name:</strong> {{ jobPosition.name }}
+        </p>
+        <p>
+          <strong>Status:</strong> {{ jobPosition.status ? 'Active' : 'Inactive' }}
+        </p>
+  
+        <div class="action-buttons">
+          <button class="edit-btn">
+            <a [routerLink]="['/job-positions', jobPosition.id, 'update']" class="anchor-tag">
+              Edit
+            </a>
+          </button>
+  
+          <button class="delete-btn" (click)="openDeleteModal(jobPosition)">Delete</button>
+        </div>
+      </div>
+    </div>
+  
+    <div *ngIf="!jobPosition">
+      <p>No job position available.</p>
+    </div>
+  
+    <!-- Modal de confirmación de eliminación -->
+    <div *ngIf="jobPositionToDelete" class="modal-overlay"></div>
+    <div *ngIf="jobPositionToDelete" class="modal">
+      <h3>Are you sure you want to delete {{ jobPositionToDelete!.name }}?</h3>
+      <div class="modal-buttons">
+        <button (click)="confirmDelete()" class="confirm-delete">Yes</button>
+        <button (click)="cancelDelete()" class="cancel-delete">No</button>
+      </div>
+    </div>
+  </section>
+  
+
+

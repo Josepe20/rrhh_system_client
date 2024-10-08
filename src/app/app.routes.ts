@@ -11,9 +11,16 @@ import { DepartmentUpdateComponent } from './departments/department-update/depar
 
 //Employee
 import { EmployeeDashboardComponent } from './employees/employee-dashboard/employee-dashboard.component';
+import { EmployeeCreateComponent } from './employees/employee-create/employee-create.component';
+import { EmployeeByIdComponent } from './employees/employee-by-id/employee-by-id.component';
+import { EmployeeUpdateComponent } from './employees/employee-update/employee-update.component';
 
 // JobPosition
 import { JobPositionDashboardComponent } from './jobPosition/job-position-dashboard/job-position-dashboard.component';
+import { JobPositionCreateComponent } from './jobPosition/job-position-create/job-position-create.component';
+import { JobPositionByIdComponent } from './jobPosition/job-position-by-id/job-position-by-id.component';
+import { JobPositionUpdateComponent } from './jobPosition/job-position-update/job-position-update.component';
+
 
 export const routes: Routes = [
     {
@@ -31,11 +38,21 @@ export const routes: Routes = [
     },
     {
         path: 'employees',
-        component: EmployeeDashboardComponent
+        children: [
+            { path: '', component: EmployeeDashboardComponent }, // Vista principal del dashboard
+            { path: 'create', component: EmployeeCreateComponent }, // Crear nuevo departamento
+            { path: ':id', component: EmployeeByIdComponent }, // Ruta dinámica para buscar por ID
+            { path: ':id/update', component: EmployeeUpdateComponent }, // Ruta dinámica para buscar por ID
+        ]
     },
     {
         path: 'job-positions',
-        component: JobPositionDashboardComponent
+        children: [
+            { path: '', component: JobPositionDashboardComponent }, // Vista principal del dashboard
+            { path: 'create', component: JobPositionCreateComponent }, // Crear nuevo departamento
+            { path: ':id', component: JobPositionByIdComponent }, // Ruta dinámica para buscar por ID
+            { path: ':id/update', component: JobPositionUpdateComponent }, // Ruta dinámica para buscar por ID
+        ]
     },
     {
         path: '', 

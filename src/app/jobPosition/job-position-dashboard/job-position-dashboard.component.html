@@ -1,1 +1,47 @@
-<p>job-position-dashboard works!</p>
+<section class="main">
+    <button class="create-btn">
+        <a [routerLink]="['/job-positions/create']">Create New Job Position</a>
+    </button>
+
+    <div *ngIf="jobPositions.length > 0">
+        <table class="job-positions-table">
+            <thead>
+                <tr>
+                    <th>Job Position Name</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let jobPosition of jobPositions">
+                    <td>
+                        <a [routerLink]="['/job-positions', jobPosition.id]">{{ jobPosition.name }}</a>
+                    </td>
+                    <td>
+                        <button class="edit-btn">
+                            <a [routerLink]="['/job-positions', jobPosition.id, 'update']">Edit</a>
+                        </button>
+                    </td>
+                    <td>
+                        <button class="delete-btn" (click)="openDeleteModal(jobPosition)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="jobPositions.length === 0">
+        <p>No job positions available.</p>
+    </div>
+
+    <!-- Modal de confirmación de eliminación -->
+    <div *ngIf="jobPositionToDelete" class="modal-overlay"></div>
+    <div *ngIf="jobPositionToDelete" class="modal">
+        <h3>Are you sure you want to delete {{ jobPositionToDelete!.name }}?</h3>
+        <div class="modal-buttons">
+            <button (click)="confirmDelete()" class="confirm-delete">Yes</button>
+            <button (click)="cancelDelete()" class="cancel-delete">No</button>
+        </div>
+    </div>
+</section>
+

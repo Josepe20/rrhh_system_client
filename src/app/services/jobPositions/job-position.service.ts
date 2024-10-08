@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { JobPositionCreate } from '../../jobPosition/job-position.interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -18,11 +19,11 @@ export class JobPositionService {
     return this.http.get(`${this.apiUrl}/${id}`);
   }
 
-  createJobPosition(jobPositionData: any): Observable<any> {
+  createJobPosition(jobPositionData: JobPositionCreate): Observable<any> {
     return this.http.post(`${this.apiUrl}/create`, jobPositionData);
   }
 
-  updateJobPosition(id: Number, updateDepartment: any): Observable<any> {
+  updateJobPosition(id: Number, updateDepartment: JobPositionCreate): Observable<any> {
     return this.http.put(`${this.apiUrl}/update/${id}`, updateDepartment);
   }
 

@@ -1,0 +1,29 @@
+<section class="main">
+    <div *ngIf="jobPosition">
+        <div class="update-job-position">
+            <h2>Update Job Position</h2>
+            
+            <form (ngSubmit)="updateJobPosition()" class="form">
+              <div class="form-group">
+                  <label for="jobPositionName">Job Position Name:</label>
+                  <input type="text" [(ngModel)]="jobPosition.name" name="jobPositionName" required>
+              </div>
+          
+              <div class="form-group">
+                  <label for="status">Status:</label>
+                  <select [(ngModel)]="jobPosition.status" name="status">
+                    <option [value]="true">Active</option>
+                    <option [value]="false">Inactive</option>
+                  </select>
+              </div>
+          
+              <button type="submit" class="create-btn">Update Job Position</button>
+            </form>
+        </div>
+    </div>
+
+    <div *ngIf="!jobPosition">
+        <p>loading...</p>
+    </div>
+</section>
+
