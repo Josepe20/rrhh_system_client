@@ -1,1 +1,48 @@
-<p>employee-dashboard works!</p>
+<section class="main">
+    <button class="create-btn">
+      <a [routerLink]="['/employees/create']">Create New Employee</a>
+    </button>
+  
+    <div *ngIf="employees.length > 0">
+      <table class="employees-table">
+        <thead>
+          <tr>
+            <th>Employee Name</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of employees">
+            <td>
+              <a [routerLink]="['/employees', employee.id]">{{ employee.first_name }} {{ employee.last_name }}</a>
+            </td>
+            <td>
+              <button class="edit-btn">
+                <a [routerLink]="['/employees', employee.id, 'update']">Edit</a>
+              </button>
+            </td>
+            <td>
+              <button class="delete-btn" (click)="openDeleteModal(employee)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <div *ngIf="employees.length === 0">
+      <p>No employees available.</p>
+    </div>
+  
+
+    <!-- Modal de confirmación de eliminación -->
+    <div *ngIf="employeeToDelete" class="modal-overlay"></div>
+    <div *ngIf="employeeToDelete" class="modal">
+        <h3>Are you sure you want to delete {{ employeeToDelete!.first_name }} {{ employeeToDelete!.last_name }}?</h3>
+        <div class="modal-buttons">
+            <button (click)="confirmDelete()" class="confirm-delete">Yes</button>
+            <button (click)="cancelDelete()" class="cancel-delete">No</button>
+        </div>
+    </div>
+</section>
+

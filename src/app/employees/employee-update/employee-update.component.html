@@ -1,1 +1,56 @@
-<p>employee-update works!</p>
+<section class="main">
+    <div class="create-employee">
+        <h2>Update Employee</h2>
+  
+        <form (ngSubmit)="updateEmployee()" class="form">
+  
+            <!-- First Name -->
+            <div class="form-group">
+                <label for="firstName">First Name:</label>
+                <input type="text" [(ngModel)]="employee.first_name" name="firstName" required>
+            </div>
+  
+            <!-- Last Name -->
+            <div class="form-group">
+                <label for="lastName">Last Name:</label>
+                <input type="text" [(ngModel)]="employee.last_name" name="lastName" required>
+            </div>
+  
+            <!-- Address -->
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" [(ngModel)]="employee.address" name="address" required>
+            </div>
+  
+            <!-- Birth Date -->
+            <div class="form-group">
+                <label for="birthDate">Birth Date:</label>
+                <input type="date" [(ngModel)]="employee.birth_date" name="birthDate" required>
+            </div>
+  
+            <!-- Department -->
+            <div class="form-group">
+                <label for="department">Department:</label>
+                <select [(ngModel)]="employee.department_id" name="department" required>
+                    <option *ngFor="let department of departments" [value]="department.id">
+                        {{ department.name }}
+                    </option>
+                </select>
+            </div>
+  
+            <!-- Job Position -->
+            <div class="form-group">
+                <label for="jobPosition">Job Position:</label>
+                <select [(ngModel)]="employee.job_position_id" name="jobPosition" required>
+                    <option *ngFor="let jobPosition of jobPositions" [value]="jobPosition.id">
+                        {{ jobPosition.name }}
+                    </option>
+                </select>
+            </div>
+  
+            <!-- Submit Button -->
+            <button type="submit" class="create-btn">Update Employee</button>
+        </form>
+    </div>
+  </section>
+  
