@@ -40,7 +40,8 @@ export class EmployeeDashboardComponent implements OnInit {
       this.employeeService.deleteEmployee(this.employeeToDelete.id).subscribe({
         next: () => {
           this.loadEmployees(); // Recargar la lista de empleados después de la eliminación
-          this.employeeToDelete = null; // Limpiar la selección
+          this.employeeToDelete = null;
+          //window.location.reload(); // Limpiar la selección
         },
         error: (err) => {
           console.error('Error deleting employee:', err);
